@@ -1,0 +1,31 @@
+
+<body>
+    <div class="container">
+        <header>
+            <div class='header-flex'>
+                <h1> Todo List :{{inCompleteCount}}</h1>
+                
+                {{>loginButtons}}
+
+                <label class="hide-completed">
+                    <input type="checkbox" name="" id=""/>
+                    Hide completed Task
+                </label>
+            </div>
+            {{#if currentUser}}
+            <form class="new-task">
+                <input type="text" name="text" id="text" placeholder="type to add new task"/>
+                <button type="submit" class="add-task">Add</button>
+            </form>
+            {{/if}}
+           
+        </header>
+        {{#if currentUser}}
+        <ul>
+            {{#each tasks}}
+                {{> task}}
+            {{/each}}
+        </ul>
+        {{/if}}
+    </div>
+</body>
